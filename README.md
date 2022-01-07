@@ -1,6 +1,6 @@
-# .NET Microservices Sample Reference Application
+# .NET Microservices Sample Application
 
-Sample .NET Core reference application, powered by Microsoft, based on a simplified microservices architecture and Docker containers.
+Sample .NET Core reference application, powered by Microsoft, based on clean architecture and Docker containers.
 
 ## Overview ###
  
