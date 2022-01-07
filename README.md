@@ -8,7 +8,7 @@ The application manages 100 robots. It gives their current position on an xy-pla
 
 The `GetNearestRobot`  endpoint accepts a payload which needs to be moved (including its identifier and current x,y coordinates) and return which robot is best to transport the load (based on which one is closest the load's location). 
 
-If there is more than 1 robot within 10 distance units of the load, the one with the most battery remaining is returned (robots with less than 3 power are sent to recharge).
+If there is more than 1 robot within 10 distance units of the load, the one with the most battery remaining is returned.
 
 The distance between two points is found with the following formula:
 

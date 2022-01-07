@@ -42,7 +42,7 @@ namespace Robots.Core.Services
     {
       _logger.LogDebug($"Processing payload {load.LoadId}");
       var robots = (await _robotQueries.GetRobotsAsync(token))
-        .Where(x => x.BatteryLevel > 3) // low power robots will be sent to recharge
+        .Where(x => x.BatteryLevel > 0) // low power robots will be sent to recharge
         .ToArray();
 
       var radicands = MathUtilities.ComputeRobotsRadicands(robots, load.Location);
