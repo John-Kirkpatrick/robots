@@ -1,0 +1,78 @@
+version: '3.9'
+
+x-health: &healthcheck
+  healthcheck:
+    test: curl --fail ${HEALTH_URL:-http://0.0.0.0/liveness} || exit 1
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 5s
+
+services:
+  robots-api:
+    image: robots-api
+    container_name: robots-api
+    build:
+      context: .
+      dockerfile: src/Robots.API/Dockerfile
+    <<: *healthcheck
+    environment:
+      ASPNETCORE_ENVIRONMENT: Local
+    ports:
+      - "5001:80"
+    depends_on:
+      - postgres
+      - redis
+      - faker-robots
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      - netlocal
+
+  postgres:
+    image: postgres:13.4
+    container_name: postgres
+    command: "postgres -c 'shared_buffers=128MB' -c 'fsync=off' -c 'synchronous_commit=off' -c 'full_page_writes=off' -c 'max_connections=100' -c 'client_min_messages=warning'"
+    restart: always
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: robots
+      POSTGRES_PASSWORD: "1234"
+    volumes:
+      - pgvolume:/var/lib/postgresql/data
+    networks:
+      - netlocal
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - robots-redisdata:/data
+    networks:
+      - netlocal
+
+  faker-robots:
+    container_name: faker
+    image: dotronglong/faker:stable
+    volumes:
+      - ./mocks:/app/mocks
+    ports:
+      - "3030:3030"
+    networks:
+      - netlocal
+
+volumes:
+  pgvolume:
+  robots-redisdata:
+    external: false
+
+networks:
+  netlocal:
+    name: netlocal
