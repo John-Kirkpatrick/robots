@@ -32,7 +32,7 @@ namespace Robots.Core.Queries
 
       try
       {
-        _logger.LogDebug("Retrieving customers from cache");
+        _logger.LogDebug("Retrieving robots from cache");
         string? jsonObject = await _cache.GetStringAsync(CacheKeys.RobotsCacheKey, token);
         robots = JsonSerializer.Deserialize<RobotContract[]>(jsonObject);
       }
