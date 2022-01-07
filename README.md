@@ -30,7 +30,7 @@ There are 3 endpoints available
 ## Coming Soon! ##
 
 * SPA to visualize the robot's locations and payloads
-* Faster Computations! [Nearest neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor) implementation ([Supercluster.KD-Tree](https://github.com/ericreg/Supercluster.KDTree/wiki)) and benmark results ([BenchmarkDontNet](https://benchmarkdotnet.org/articles/overview.html))
+* Faster Computations! [Nearest neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor) implementation ([Supercluster.KD-Tree](https://github.com/ericreg/Supercluster.KDTree/wiki/Tutorial:-Nearest-Neighbor-Search)) and benmark results ([BenchmarkDontNet](https://benchmarkdotnet.org/articles/overview.html))
 * **Better Robots!** Variances in the robots battery capacity, battery usage/per load weight, battery degradation
 * Robots will move to payload location when performing a job (for subsequent requests)
 * Battery levels persist through subsequent payload requests and the ability to send robots to recharge when their battery level is low
