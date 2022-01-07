@@ -37,6 +37,6 @@ There are 3 endpoints available
 
 ## Related documentation and guidance
 
-You can find the related reference **Guide/eBook** focusing on **architecting and developing containerized and microservice-based .NET Applications** (download link available below) which explains in detail how to develop this kind of architectural style (microservices, Docker containers, Domain-Driven Design for certain microservices) plus other simpler architectural styles, like monolithic apps that can also live as Docker containers.
+You can find a related reference **Guide/eBook** focusing on **architecting and developing containerized and microservice-based .NET Applications** (download link available below) which explains in detail how to develop this kind of architectural style (microservices, Docker containers, Domain-Driven Design for certain microservices) plus other simpler architectural styles, like monolithic apps that can also live as Docker containers.
 
 [![](img/architecture-book-cover-large-we.png)](https://aka.ms/microservicesebook)
