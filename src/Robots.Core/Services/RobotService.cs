@@ -41,7 +41,10 @@ namespace Robots.Core.Services
     public async Task<NearestRobotResult> GetNearestRobotAsync(PayLoad load, CancellationToken token)
     {
       _logger.LogDebug($"Processing payload {load.LoadId}");
-      var robots = await _robotQueries.GetRobotsAsync(token);
+      var robots = (await _robotQueries.GetRobotsAsync(token))
+        .Where(x => x.BatteryLevel > 3) // low power robots will be sent to recharge
+        .ToArray();
+
       var radicands = MathUtilities.ComputeRobotsRadicands(robots, load.Location);
       var closeRobots = GetCloseRobots(radicands);
 

@@ -49,6 +49,8 @@ namespace Robots.Core.Tasks
         var robotsClient = scope.ServiceProvider.GetRequiredService<IRobotsClient>();
         var robots = await robotsClient.GetRobotsAsync(stoppingToken);
 
+        // TODO: send robots with charge <= 3 back to charge
+
         _logger.LogInformation($"{nameof(RobotSeederBackgroundService)} is storing {robots.Length} robots to distributed cache");
         string serializedObjectToCache = JsonSerializer.Serialize(robots);
         await _cache.SetStringAsync(CacheKeys.RobotsCacheKey,
