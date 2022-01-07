@@ -2,7 +2,7 @@
 
 Sample .NET Core reference application, powered by Microsoft, based on a simplified microservices architecture and Docker containers.
 
-## What is this repository for? ###
+## Overview ###
  
 The application manages 100 robots. It gives their current position on an xy-plane along with their battery life. 
 
@@ -30,9 +30,9 @@ There are 3 endpoints available
 ## Coming Soon! ##
 
 * SPA to visualize the robot's locations and payloads
-* Faster Computations! [Nearest neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor) algorithms and benchmarks
+* Faster Computations! [Nearest neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor) implementation ([Supercluster.KD-Tree](https://github.com/ericreg/Supercluster.KDTree/wiki)) and benmark results ([BenchmarkDontNet](https://benchmarkdotnet.org/articles/overview.html))
 * Variances in the robots battery capacity, battery usage/per load weight, battery degradation
-* The robots will move the payload location when performing a job (for subsequent requests)
+* Robots will move the payload location when performing a job (for subsequent requests)
 * Ability to recharge  robots when their battery level is low
 
 ## Related documentation and guidance
