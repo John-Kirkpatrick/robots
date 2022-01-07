@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{B14EB222-494D-4461-9900-2DA62534A523}"
@@ -35,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".mocks", ".mocks", "{E19DA1
 		mocks\robots.json = mocks\robots.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "tests\Utility\Utility.csproj", "{8E39E85B-E356-4DBF-9AC3-7883662D0EFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "tests\Utility\Utility.csproj", "{8E39E85B-E356-4DBF-9AC3-7883662D0EFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

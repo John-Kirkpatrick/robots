@@ -1,29 +1,42 @@
-# README #
+# .NET Microservices Sample Reference Application
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Sample .NET Core reference application, powered by Microsoft, based on a simplified microservices architecture and Docker containers.
 
-### What is this repository for? ###
+## What is this repository for? ###
  
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+The application manages 100 robots. It gives their current position on an xy-plane along with their battery life. 
 
-### How do I get set up? ###
+The /v1/robots/closest endpoint (HTTPPost) accepts a payload with a load which needs to be moved including its identifier and current x,y coordinates and return the robot which is the best to transport the load based on which one is closest the load's location. 
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+If there is more than 1 robot within 10 distance units of the load, the one with the most battery remaining is returned.
 
-### Contribution guidelines ###
+## Getting Started
 
-* Writing tests
-* Code review
-* Other guidelines
+Make sure you have [installed](https://docs.docker.com/docker-for-windows/install/) and [configured](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup#configure-docker) docker in your environment. After that, you can run the below commands from the **/src/** directory and get started with `robots` immediately.
 
-### Who do I talk to? ###
+```powershell
+docker-compose build
+docker-compose up
+```
 
-* Repo owner or admin
-* Other community or team contact
+Access the application by navigating to [http://localhost:5001/swagger](http://localhost:5001/swagger)
+
+#### Endpoints
+There are 3 endpoints available
+* GetRobots - displays the robots
+* GetNearestRobot - Returns the robot which is the best to transport the load based on which one is closest the load's location 
+* GetJobs - Returns a list of previously submitted jobs and their results
+
+## Coming Soon! ##
+
+* SPA to visualize the robot's locations and payloads
+* Faster Computations! [Nearest neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor) algorithms and benchmarks
+* Variances in the robots battery capacity, battery usage/per load weight, battery degradation
+* The robots will move the payload location when performing a job (for subsequent requests)
+* Ability to recharge  robots when their battery level is low
+
+## Related documentation and guidance
+
+You can find the related reference **Guide/eBook** focusing on **architecting and developing containerized and microservice-based .NET Applications** (download link available below) which explains in detail how to develop this kind of architectural style (microservices, Docker containers, Domain-Driven Design for certain microservices) plus other simpler architectural styles, like monolithic apps that can also live as Docker containers.
+
+[![](img/architecture-book-cover-large-we.png)](https://aka.ms/microservicesebook)
