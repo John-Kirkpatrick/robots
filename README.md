@@ -10,6 +10,10 @@ The /v1/robots/closest endpoint (HTTPPost) accepts a payload with a load which n
 
 If there is more than 1 robot within 10 distance units of the load, the one with the most battery remaining is returned.
 
+The distance between two points is found with the following formula:
+
+![distance formula](https://user-images.githubusercontent.com/7139741/122107356-f915e300-cde8-11eb-8699-f87b50046350.png)
+
 ## Getting Started
 
 Make sure you have [installed](https://docs.docker.com/docker-for-windows/install/) and [configured](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup#configure-docker) docker in your environment. After that, you can run the below commands from the **/src/** directory and get started with `robots` immediately.
