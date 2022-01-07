@@ -59,6 +59,5 @@ namespace Robots.Core
 
       return (sum, sumOfSquares, count);
     }
-
   }
 }
