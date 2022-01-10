@@ -7,7 +7,10 @@
       "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
       "commandVersion": "1.0",
       "serviceActions": {
-        "robots-api": "StartDebugging"
+        "robots-api": "StartDebugging",
+        "redis": "StartWithoutDebugging",
+        "postgres": "StartWithoutDebugging",
+        "faker-robots": "StartWithoutDebugging"
       }
     }
   }
